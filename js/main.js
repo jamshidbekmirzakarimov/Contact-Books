@@ -16,4 +16,30 @@ const arrayPush = (userName, relationship, phoneNumber) => {
   });
 };
 
+function createContact(array) {
+  const elContactTemplate = document.querySelector("#js-contact-temp").content;
+  const elContactTempClone = elContactTemplate.cloneNode(true);
+  
+    array.forEach(function (contact, index) {
+    elContactTempClone.querySelector(".js-contact-username").textContent = contact.name;
+    elContactTempClone.querySelector(".js-contact-rel").textContent = contact.rel;
+    elContactTempClone.querySelector(".js-contact-number").textContent = contact.phone;
+    elContactTempClone.querySelector(".js-contact-number").href = `tel:${contact.phone}`;
+    elContactTempClone.querySelector(".js-delete-btn").dataset.contactId = index;
+    
+    
+    elContactList.appendChild(elContactTempClone);
+  });
+}
 
+elContactForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  
+  const inputNameValue = elContactInputName.value.trim();
+  const inputRelValue = elContactInputRel.value.trim();
+  const inputPhoneValue = elContactInputNumber.value.trim();
+  
+  arrayPush(inputNameValue, inputRelValue, inputPhoneValue);
+  
+  createContact(arrayContacts);
+});
