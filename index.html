@@ -21,9 +21,9 @@
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-3">
           <form class="js-contact-form" action="#">
-            <input class="js-contact-name form-control mb-3" type="text" placeholder="Enter you name">
+            <input class="js-contact-name form-control mb-3" type="text" placeholder="Enter you name" required>
             
-            <input class="js-contact-relationship form-control mb-3" type="text" placeholder="Choose your relationship" list="relationship">
+            <input class="js-contact-relationship form-control mb-3" type="text" placeholder="Choose your relationship" list="relationship" required>
             <datalist id="relationship">
               <option value="Friend">
                 <option value="Family">
@@ -31,7 +31,7 @@
                     <option value="Other">
                     </datalist>
                     
-                    <input class="js-contact-phone-number form-control mb-3" type="text" placeholder="Enter you phone number">
+                    <input class="js-contact-phone-number form-control mb-3" type="text" placeholder="Enter you phone number" required>
                     
                     <div class="d-grid">
                       <button class="btn btn-primary">Add</button>

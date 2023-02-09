@@ -20,7 +20,7 @@ function createContact(array) {
   const elContactTemplate = document.querySelector("#js-contact-temp").content;
   const elContactTempClone = elContactTemplate.cloneNode(true);
   
-    array.forEach(function (contact, index) {
+  array.forEach(function (contact, index) {
     elContactTempClone.querySelector(".js-contact-username").textContent = contact.name;
     elContactTempClone.querySelector(".js-contact-rel").textContent = contact.rel;
     elContactTempClone.querySelector(".js-contact-number").textContent = contact.phone;
@@ -34,6 +34,8 @@ function createContact(array) {
 
 elContactForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
+
+  elContactList.innerHTML = null;
   
   const inputNameValue = elContactInputName.value.trim();
   const inputRelValue = elContactInputRel.value.trim();
@@ -42,4 +44,9 @@ elContactForm.addEventListener("submit", function (evt) {
   arrayPush(inputNameValue, inputRelValue, inputPhoneValue);
   
   createContact(arrayContacts);
+  
+  elContactInputName.value = "";
+  elContactInputRel.value = "";
+  elContactInputNumber.value = "";
 });
+
